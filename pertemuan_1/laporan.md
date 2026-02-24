@@ -102,14 +102,14 @@ Install Ubuntu 24.04 LTS dengan WSL
 #### Jawaban
 
 ##### Persiapan dan Aktivasi WSL
-![](20260204-160430.png)
+![](img/20260204-160430.png)
 
 ##### Restart Komputer
-![](20260205-160527.png)
+![](img/20260205-160527.png)
 
 ##### Konfigurasi Ubuntu
-![](20260208-160811.png)
-![](1.1.png)
+![](img/20260208-160811.png)
+![](img/1.1.png)
 
 ### Latihan 1.4
 
@@ -126,22 +126,22 @@ Setelah instalasi Ubuntu Server, lakukan tasks berikut:
 #### Jawaban
 
 ##### Update package list
-![](20260216-161616.png)
+![](img/20260216-161616.png)
 
 ##### Upgrade packages
-![](20260217-161758.png)
+![](img/20260217-161758.png)
 
 ##### Install neofetch
-![](20260219-161910.png)
+![](img/20260219-161910.png)
 
 ##### Jalankan neofetch
-![](20260221-162117.png)
+![](img/20260221-162117.png)
 
 ##### Check disk usage dengan df -h
-![](20260221-162143.png)
+![](img/20260221-162143.png)
 
 ##### Check memory dengan free -h
-![](20260222-162203.png)
+![](img/20260222-162203.png)
 
 ### Latihan 1.5
 
@@ -157,22 +157,22 @@ Eksplorasi sistem yang baru diinstall:
 #### Jawaban
 
 ##### Menampilkan informasi OS
-![](20260225-162533.png)
+![](img/img/20260225-162533.png)
 
 ##### Menampilkan versi kernel
-![](20260225-162557.png)
+![](img/20260225-162557.png)
 
 ##### Menampilkan list partisi
-![](20260226-162625.png)
+![](img/20260226-162625.png)
 
 ##### Checking network connectivity
-![](20260226-162653.png)
+![](img/20260226-162653.png)
 
 ##### Installing htop
-![](20260229-162931.png)
+![](img/20260229-162931.png)
 
 ##### Menjalankan htop untuk melihat resource usage
-![](20260230-163006.png)
+![](img/20260230-163006.png)
 
 ##### Laporan singkat tentang konfigurasi sistem
 
@@ -214,5 +214,5 @@ Salah satu pelajaran penting yang saya petik bukan hanya soal teknis, tapi soal 
 
 Sekarang saya terpikirkan untuk menggunakan linux sepenuhnya di laptop saya, namun itu masih saya pertimbangkan lebih lanjut.
 
-![](20260221-162143.png)
-![](20260230-163006.png)
+![](img/20260221-162143.png)
+![](img/20260230-163006.png)
