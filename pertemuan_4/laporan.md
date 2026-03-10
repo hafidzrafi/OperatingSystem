@@ -126,14 +126,66 @@ Pindahkan ke subdirectory `play`.
 Ubah lah ke subdirectory `play` dan buat symbolic link dengan nama `terminal` yang menunjuk ke perangkat tty. Apa yang terjadi jika melakukan hard link ke perangkat tty ?
 ![](img/20260357-235716.png)
 
+#### Apa yang terjadi jika melakukan hard link ke perangkat tty ?
+Terminal akan memunculkan pesan Error karena Hard link tidak diperbolehkan untuk file perangkat (device file) seperti TTY dan hard link tidak bisa dibuat melintasi sistem file yang berbeda
+
 ### Soal 12
 Buatlah file bernama `hello.txt` yang berisi kata ”`hello word`”. Dapatkah Anda gunakan `”cp”` menggunakan ”terminal” sebagai file asal untuk menghasilkan efek yang sama ?
+![](img/20260324-002428.png)
+
+#### Dapatkah Anda gunakan `”cp”` menggunakan ”terminal” sebagai file asal untuk menghasilkan efek yang sama ?
+Bisa, namun echo bersifat otomatis, sedangkan menggunakan terminal sebagai sumber berarti sistem menunggu input manual dari keyboard untuk disalin ke file
 
 ### Soal 13
 Copy `hello.txt` ke terminal. Apa yang terjadi ?
+![](img/20260326-002624.png)
 
 ### Soal 14
 Masih directory home, copy keseluruhan directory `play` ke directory bernama `work` menggunakan symbolic link.
+![](img/20260327-002745.png)
 
 ### Soal 15
 Hapus directory `work` dan isinya dengan satu perintah
+![](img/20260328-002839.png)
+
+
+## Laporan
+
+### 1. Analisa hasil percobaan yang Anda lakukan
+
+#### a. Analisa setiap hasil tampilannya.
+- Sistem file Linux diatur secara hirarki seperti pepohonan (tree), dimulai dari root (/) lalu ke direktori dan sub-direktori.
+- Penelusuran pada direktori seperti /etc menunjukkan tempat penyimpanan file administratif dan konfigurasi sistem. Sedangkan /dev berisi file khusus yang merepresentasikan peralatan hardware.
+- Perintah ls -l dapat mengidentifikasi properti file seperti tipe file (karakter pertama), izin akses, jumlah link, pemilik (owner), grup, ukuran, dan waktu modifikasi.
+
+#### b. Pada Percobaan 1 point 3 buatlah pohon dari struktur file dan direktori
+Berdasarkan Percobaan 1 point 3 pada halaman 9, berikut adalah pohon strukturnya:
+```
+HOME (~)
+├── A
+│   ├── D
+│   │   └── A
+│   └── E
+├── B
+│   └── F
+└── C
+```
+
+#### c. Bila terdapat pesan error, jelaskan penyebabnya.
+| Error | Keterangan |
+| --- | --- |
+|Error `rmdir B` (Percobaan 1 Poin 4 ) | Muncul pesan error karena direktori `B` tidak kosong (masih berisi direktori `F`). Sesuai aturan, `rmdir` hanya dapat menghapus direktori yang benar-benar kosong. |
+| Error `cd /<user/C` (Percobaan 1 Poin 5 ) | Pesan error muncul karena kesalahan penulisan jalur (path) atau direktori tersebut tidak ditemukan pada level root yang dimaksud. |
+| Error Hard Link ke `tty` (Latihan 11 ) | Terjadi kegagalan karena hard link memiliki batasan tidak dapat dibentuk melintasi partisi disk yang berbeda dan tidak diizinkan untuk file perangkat (device file). |
+
+
+### 2. Kerjakan latihan di atas dan analisa hasil tampilannya.
+| Komponen | Detail |
+| --- | --- |
+| Identifikasi `tty` | Terminal diidentifikasi sebagai Character Device (ditandai dengan karakter `c` pada properti file) yang mengirimkan data karakter per karakter. |
+| Analisa `/proc` | Direktori ini disebut pseudo-filesystem karena diatur oleh kernel dan dibuat di atas RAM, bukan di disk fisik. Ia berisi informasi real-time tentang proses sistem dan driver yang aktif. |
+| Efek `cp hello.txt terminal` | Teks muncul di layar karena sistem memperlakukan perangkat keras (terminal) sama seperti penanganan file biasa. |
+| Symbolic Link vs Hard Link | Symbolic link (petik `l`) bertindak sebagai shortcut yang menunjuk ke lokasi asal. Berbeda dengan hard link, symbolic link dapat dibuat untuk file yang tidak ada atau berada di partisi berbeda. |
+
+### 3. Berikan kesimpulan dari praktikum ini.
+Sistem operasi Linux mengelola data secara hirarki menggunakan struktur tree yang dimulai dari root. Praktikum ini membuktikan filosofi Linux bahwa perangkat keras dapat diakses dan di manipulasi melalui antarmuka file di dalam direktori `/dev`. Selain itu, pemahaman tentang atribut file dan mekanisme link penting untuk manajemen penyimpanan dan keamanan data dalam sistem operasi Linux.
